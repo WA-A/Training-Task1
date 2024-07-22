@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Task1.Models.Products>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <style>
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+        }
+        .product-name {
+            font-weight: bold;
+        }
+        .product-price {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @foreach (var product in Model)
+        {
+            <div class="product-item">
+                <img src="@product.ImageUrl" alt="@product.Name" class="product-image" />
+                <div class="product-name">@product.Name</div>
+                <div class="product-price">$@product.Price</div>
+               <p class="card-text text-muted">Original Price: ₪@product.DiscountPrice</p>
+                 <p class="card-text">@product.Description</p>
+            </div>
+
+           
+        }
+    </div>
+</body>
+</html>
